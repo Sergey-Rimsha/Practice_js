@@ -23,7 +23,7 @@
 
 'use strict';
 
-const numberOfFilms = prompt('Сколько фильмов уже посмотрели?', '');
+const numberOfFilms = +prompt('Сколько фильмов уже посмотрели?', '');
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -34,8 +34,21 @@ const personalMovieDB = {
 };
 
 for (let i = 0; i < 2; i++) {
-    let questFilm = prompt('Один из последних просмотренных фильмов?','');
-    let questRating = prompt('На сколько оцените его?','5.5');
-    personalMovieDB.movies[questFilm] = questRating;
+    let a = prompt('Один из последних просмотренных фильмов?','');
+    let b = prompt('На сколько оцените его?','5.5');
+
+    if (a == null && b == null && a == '' && b == '' && a > 50 ) {
+        --i;
+    } else {
+        personalMovieDB.movies[a] = b;
+    }  
+}
+
+if (personalMovieDB.count < 10) {
+    alert('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count < 30) {
+    alert('Вы классический зритель');
+} else {
+    alert('Вы киноман');
 }
 
