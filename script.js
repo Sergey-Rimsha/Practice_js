@@ -37,7 +37,7 @@ for (let i = 0; i < 2; i++) {
     let a = prompt('Один из последних просмотренных фильмов?','');
     let b = prompt('На сколько оцените его?','5.5');
 
-    if (a == null && b == null && a == '' && b == '' && a > 50 ) {
+    if (a == null || b == null || a == '' || b == '' || a.length > 50 ) {
         --i;
     } else {
         personalMovieDB.movies[a] = b;
